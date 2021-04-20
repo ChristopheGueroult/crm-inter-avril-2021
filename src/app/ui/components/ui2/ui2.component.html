@@ -1,0 +1,24 @@
+<div class="ui">
+  <header>
+    <!-- transclusion : projection d'un icon -->
+    <span *ngIf="open" (click)="toggle()">
+      <ng-content select=".tr-icon-close"></ng-content>
+    </span>
+    <span *ngIf="!open" (click)="toggle()">
+      <ng-content select=".tr-icon-open"></ng-content>
+    </span>
+    <ng-content select=".tr-header"></ng-content>
+  </header>
+
+  <nav>
+    <ng-content select=".tr-nav"></ng-content>
+  </nav>
+
+  <main>
+    <ng-content select=".tr-content"></ng-content>
+  </main>
+
+  <footer>
+    <ng-content select=".tr-footer"></ng-content>
+  </footer>
+</div>
