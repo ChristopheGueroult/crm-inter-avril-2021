@@ -1,4 +1,4 @@
-<app-template-full-width [title]="title" *ngIf="collection">
+<app-template-full-width [title]="title" *ngIf="collection$ | async as collection">
   <button (click)="changeTitle()">change title</button>
   <!-- {{ collection | json }} -->
   <app-table-light [headers]="headers">
