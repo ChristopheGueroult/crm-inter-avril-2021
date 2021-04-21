@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { StateOrder } from 'src/app/core/enums/state-order.enum';
 import { Order } from 'src/app/core/models/order';
 import { OrdersService } from '../../services/orders.service';
 
@@ -9,6 +10,7 @@ import { OrdersService } from '../../services/orders.service';
   styleUrls: ['./page-list-orders.component.scss'],
 })
 export class PageListOrdersComponent implements OnInit {
+  public states = Object.values(StateOrder);
   public title = 'List Orders';
   // public collection!: Order[];
   public collection$: Observable<Order[]>;
@@ -32,5 +34,12 @@ export class PageListOrdersComponent implements OnInit {
   ngOnInit(): void {}
   public changeTitle(): void {
     this.title = 'Ma liste de commandes';
+  }
+  public changeState(item: Order, event: any): void {
+    const state = event.target.value;
+    this.ordersService.changeState(item, state).subscribe((data) => {
+      // gère les cas d'erreur de l'api
+      item.state = data.state;
+    });
   }
 }
