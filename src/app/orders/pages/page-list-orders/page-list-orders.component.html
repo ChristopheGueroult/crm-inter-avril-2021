@@ -3,6 +3,9 @@
   <!-- {{ collection | json }} -->
   <app-table-light [headers]="headers">
     <tr *ngFor="let item of collection">
+      <td>
+        <app-icon-edit (click)="goToEdit(item.id)"></app-icon-edit>
+      </td>
       <td>{{ item.typePresta }}</td>
       <td>{{ item.client | uppercase }}</td>
       <td>{{ item.nbJours }}</td>
@@ -17,5 +20,5 @@
       </td>
     </tr>
   </app-table-light>
-  <app-btn></app-btn>
+  <app-btn route="add" text="Add order"></app-btn>
 </app-template-full-width>

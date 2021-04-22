@@ -1,0 +1,41 @@
+☐ page list client (récupérer la collection clients)
+  ☐ créer un enum (ACTIVE , INACTIVE) state-client
+  ☐ créer une interface client-i (model de données dans db.json)
+  ☐ créer le model (ng g class client)
+    ☐ default value state = ACTIVE (en utilisant l'enum)
+    ☐ default value tva = 20
+    ☐ default value totalCaHT = 0
+  ☐ créer le service clients
+    ☐ prendre ex sur OrdersService appel http (.../clients)
+  ☐ pagelistclientscomponent.ts récupérer la flux de donné retourné par l'appel http présent sur votre service
+    ☐ injecter votre service clients dans le constructor
+    ☐ créer un variable de type Observable<Client[]>
+    ☐ initialiser votre variable avec this.clientsService.collection
+  ☐ page list clients html
+    ☐ utiliser app template full width en changeant le title
+    ☐ utiliser app table light
+      ☐ afficher dans le tableau : le name, le total ca ht, le taux tva, le total ttc (a calculer avec le meme pipe total), le state
+      ☐ on peut changer de state directement dans le tableau
+      ☐ utiliser app btn pour une redirection vers la route clients/add
+  ☐ page list clients ts
+    ☐ declarer changeState() et faire le subscribe()
+
+    ☐ TP edit
+✔ page list order html @done(21-04-22 14:39)
+  ✔ ajouter une colone action au debut du tableau @done(21-04-22 14:39)
+  ✔ ajouter un td dans chaque tr avec un icon edit @done(21-04-22 14:39)
+  ✔ click = goToEdit(item.id) @done(21-04-22 14:39)
+✔ page list order ts @done(21-04-22 14:39)
+  ✔ déclarer la fn goToEdit(id: number) {rediriger vers la route orders/edit/1} @done(21-04-22 14:39)
+✔ orders routing ts @done(21-04-22 14:39)
+  ✔ modifier la route edit pour qu'elle accepte un parametre id @done(21-04-22 14:39)
+✔ page edit order ts @done(21-04-22 15:04)
+  ✔ récupérer l'id dans l'url (ActivatedRoute et un observable) @done(21-04-22 15:04)
+  ✔ appeler ordersService.getItemById(id).subscribe(...res ) et initialiser une variable item avec la réponse de l'api @done(21-04-22 15:26)
+  ☐ ou alors : encore mieux : initialiser une variable item$ avec this.ordersService.getItemById(1) pour avoir
+  ☐ un observable et utiliser le pipe async dans le html pour y souscrire ()
+✔ orders service ts @done(21-04-22 15:26)
+  ✔ déclarer la fn getItemById qui fait l'appel http pour récupérer un item à partir de son id @done(21-04-22 15:26)
+☐ Page edit order html
+  ☐ on utiliser template container avec un nouveau title
+  ☐ on utilise le form order (attention de ne pas binder init avec undefined)

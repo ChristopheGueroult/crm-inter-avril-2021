@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { StateOrder } from 'src/app/core/enums/state-order.enum';
 import { Order } from 'src/app/core/models/order';
@@ -15,12 +16,13 @@ export class PageListOrdersComponent implements OnInit {
   // public collection!: Order[];
   public collection$: Observable<Order[]>;
   public headers: string[];
-  constructor(private ordersService: OrdersService) {
+  constructor(private ordersService: OrdersService, private router: Router) {
     this.collection$ = this.ordersService.collection;
     // this.ordersService.collection.subscribe((data) => {
     //   this.collection = data;
     // });
     this.headers = [
+      'Actions',
       'Type',
       'Client',
       'NbJours',
@@ -41,5 +43,9 @@ export class PageListOrdersComponent implements OnInit {
       // gère les cas d'erreur de l'api
       item.state = data.state;
     });
+  }
+
+  public goToEdit(id: number) {
+    this.router.navigate(['orders', 'edit', id]);
   }
 }

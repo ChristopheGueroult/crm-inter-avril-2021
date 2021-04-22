@@ -15,7 +15,7 @@
       "nbJours": 1,
       "tva": 20,
       "state": "OPTION",
-      "typePresta": "formation",
+      "typePresta": "formation2",
       "client": "test",
       "comment": null,
       "id": 2
@@ -69,6 +69,26 @@
       "client": "Capgemini",
       "comment": null,
       "id": 7
+    },
+    {
+      "tjmHt": 1200,
+      "nbJours": 10,
+      "tva": 20,
+      "state": "OPTION",
+      "typePresta": "formation",
+      "client": "Capgemini",
+      "comment": "Merci pour les 12k",
+      "id": 8
+    },
+    {
+      "tjmHt": 1200,
+      "nbJours": 20,
+      "tva": 20,
+      "state": "OPTION",
+      "typePresta": "formation",
+      "client": "M2i",
+      "comment": "Gracias par los 24k",
+      "id": 9
     }
   ],
   "clients": [
