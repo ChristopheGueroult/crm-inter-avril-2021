@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Order } from 'src/app/core/models/order';
 import { OrdersService } from '../../services/orders.service';
 
@@ -9,7 +10,7 @@ import { OrdersService } from '../../services/orders.service';
   styleUrls: ['./page-edit-order.component.scss'],
 })
 export class PageEditOrderComponent implements OnInit {
-  public item!: Order;
+  public item$!: Observable<Order>;
   constructor(
     private route: ActivatedRoute,
     private ordersService: OrdersService,
@@ -18,10 +19,7 @@ export class PageEditOrderComponent implements OnInit {
     this.route.paramMap.subscribe((data) => {
       const id = Number(data.get('id'));
       // appeler la fn ordersService.getItemById(id)
-      this.ordersService.getItemById(id).subscribe((res) => {
-        // console.log(res);
-        this.item = res;
-      });
+      this.item$ = this.ordersService.getItemById(id);
     });
   }
 
