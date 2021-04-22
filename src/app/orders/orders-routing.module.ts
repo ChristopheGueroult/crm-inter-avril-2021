@@ -5,7 +5,11 @@ import { PageEditOrderComponent } from './pages/page-edit-order/page-edit-order.
 import { PageListOrdersComponent } from './pages/page-list-orders/page-list-orders.component';
 
 const routes: Routes = [
-  { path: '', component: PageListOrdersComponent },
+  {
+    path: '',
+    component: PageListOrdersComponent,
+    data: { title: 'List Orders' },
+  },
   { path: 'add', component: PageAddOrderComponent },
   { path: 'edit/:id', component: PageEditOrderComponent },
 ];
