@@ -61,4 +61,8 @@ export class PageListOrdersComponent implements OnInit {
       // on va devoir maj collection$
     });
   }
+
+  public getInfoItem(id: number): void {
+    this.ordersService.getItemById(id).subscribe();
+  }
 }

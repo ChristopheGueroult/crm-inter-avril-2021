@@ -6,6 +6,7 @@
       <td>
         <app-icon-edit (click)="goToEdit(item.id)"></app-icon-edit>
         <app-icon-delete (click)="deleteItem(item.id)"></app-icon-delete>
+        <app-icon-info (click)="getInfoItem(item.id)"></app-icon-info>
       </td>
       <td>{{ item.typePresta }}</td>
       <td>{{ item.client | uppercase }}</td>
@@ -22,4 +23,16 @@
     </tr>
   </app-table-light>
   <app-btn route="add" text="Add order"></app-btn>
+
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="detail" routerLinkActive="active">Détail</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="comment" routerLinkActive="active">Comment</a>
+    </li>
+  </ul>
+
+  <router-outlet></router-outlet>
+  <!-- ici que le router ajoute app-detail ou app-comment -->
 </app-template-full-width>

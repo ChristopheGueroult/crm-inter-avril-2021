@@ -7,7 +7,7 @@
       "state": "OPTION",
       "typePresta": "formation",
       "client": "Modis",
-      "comment": "Merci capgemini pour les 120 k",
+      "comment": "Merci Modis pour les 120 k",
       "id": 4
     },
     {
@@ -17,48 +17,8 @@
       "state": "OPTION",
       "typePresta": "formation",
       "client": "M2i",
-      "comment": null,
+      "comment": "Merci M2i",
       "id": 5
-    },
-    {
-      "tjmHt": 1200,
-      "nbJours": 1,
-      "tva": 20,
-      "state": "OPTION",
-      "typePresta": "formation",
-      "client": "Capgemini",
-      "comment": null,
-      "id": 6
-    },
-    {
-      "tjmHt": 1200,
-      "nbJours": 10,
-      "tva": 20,
-      "state": "OPTION",
-      "typePresta": "formation",
-      "client": "Capgemini",
-      "comment": "Merci pour les 12k",
-      "id": 8
-    },
-    {
-      "tjmHt": 1200,
-      "nbJours": 100,
-      "tva": 20,
-      "state": "OPTION",
-      "typePresta": "coaching",
-      "client": "Capgemini",
-      "comment": "fdghd",
-      "id": 9
-    },
-    {
-      "tjmHt": 1200,
-      "nbJours": 20,
-      "tva": 20,
-      "state": "OPTION",
-      "typePresta": "Coaching",
-      "client": "YouAnd",
-      "comment": "fdsgh",
-      "id": 10
     }
   ],
   "clients": [

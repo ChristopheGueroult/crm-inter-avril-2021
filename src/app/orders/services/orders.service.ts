@@ -15,12 +15,18 @@ export class OrdersService {
     []
   );
   private urlApi = environment.urlApi;
+  public itemSelected$: BehaviorSubject<Order | null> = new BehaviorSubject<Order | null>(
+    new Order()
+  );
   constructor(private http: HttpClient) {
     this.refreshCollection();
   }
 
-  public refreshCollection(): void {
+  public refreshCollection(id?: number): void {
     this.http.get<Order[]>(`${this.urlApi}/orders`).subscribe((data) => {
+      if (!id) {
+        this.itemSelected$.next(data[0]);
+      }
       this.collection$.next(data);
     });
   }
@@ -45,8 +51,10 @@ export class OrdersService {
   // update item in collection
   public update(item: Order): Observable<Order> {
     return this.http.put<Order>(`${this.urlApi}/orders/${item.id}`, item).pipe(
-      tap(() => {
-        this.refreshCollection();
+      tap((obj) => {
+        // attention aux retour error de l'api
+        this.refreshCollection(item.id);
+        this.itemSelected$.next(obj);
       })
     );
   }
@@ -64,13 +72,25 @@ export class OrdersService {
   public deleteItem(id: number): Observable<Order> {
     return this.http.delete<Order>(`${this.urlApi}/orders/${id}`).pipe(
       tap(() => {
-        this.refreshCollection();
+        // id de celui qui doit etre supprimé
+        // si l'id de celui qu'on veut delete = id de itemSelected$, on vide itemSelected$
+        if (this.itemSelected$.value && id === this.itemSelected$.value.id) {
+          this.itemSelected$.next(null);
+        }
+        // sinon on laisse tel quel itemSelected$
+        this.refreshCollection(id);
       })
     );
   }
 
   // get item by id in collection
   public getItemById(id: number): Observable<Order> {
-    return this.http.get<Order>(`${this.urlApi}/orders/${id}`);
+    return this.http.get<Order>(`${this.urlApi}/orders/${id}`).pipe(
+      tap((obj) => {
+        // attention aux retour error de l'api
+        this.refreshCollection(id);
+        this.itemSelected$.next(obj);
+      })
+    );
   }
 }
