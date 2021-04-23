@@ -39,3 +39,11 @@
 ☐ Page edit order html
   ☐ on utiliser template container avec un nouveau title
   ☐ on utilise le form order (attention de ne pas binder init avec undefined)
+
+☐ TP DELETE
+  ☐ page list orders html
+    ☐ ajoute icon delete avec un click = delete(item.id)
+  ☐ page list orders ts
+    ☐ declare fn delete(id: number) {this.ordersService.delete(item).subscribe(maj collection$ cote front)}
+  ☐ orders service ts
+    ☐ declare la fn delete(id: number) {http.delete()}
